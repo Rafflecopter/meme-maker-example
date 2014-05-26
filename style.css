@@ -5,10 +5,9 @@
 .col-xs-4 { background: #eee; outline:1px solid #555;outline-offset: -1px; }
 
 
-h1.page-header {
+.page-header {
     text-align:     center;
     font-weight:    bold;
-    font-size:      72px;
 
     padding-bottom: 50px;
     margin-bottom:  60px;
@@ -16,6 +15,9 @@ h1.page-header {
     /* looks cooler... */
     letter-spacing: -2px;
 }
+
+h1.page-header { font-size: 72px; }
+h2.page-header { font-size: 48px; }
 
 
 .thumbnail {
@@ -29,5 +31,120 @@ h1.page-header {
     cursor:         pointer;
     border-color:   #39c;
     opacity:        1;
+}
+
+#meme-image {
+    min-height: 400px;
+    max-height: 600px;
+
+    min-width: 400px;
+    max-width: 600px;
+    width: 100%;
+
+    display: block;
+    margin: 0 auto;
+}
+
+#meme-caption-top, #meme-caption-bottom,
+#meme-caption-top:before, #meme-caption-bottom:before {
+    width:          100%;
+    text-align:     center;
+    font-family:    'Impact W90 2010', "Impact";
+    color:          #fff;
+    text-transform: uppercase;
+}
+
+#meme-caption-top {
+    top:            0;
+    padding-top:    20px;
+}
+
+#meme-caption-bottom {
+    bottom:         0;
+    padding-bottom: 20px;
+}
+
+
+
+
+/*******************************************************************************
+/* Below here is "down 'n' dirty" stuff that's needed to make things work right
+/*******************************************************************************/
+
+
+#meme-canvas {
+    position: relative;
+}
+
+#meme-caption-top, #meme-caption-bottom {
+    margin-left: 100px;
+}
+
+#meme-caption-top, #meme-caption-bottom,
+#meme-caption-top:before, #meme-caption-bottom:before {
+    position: absolute;
+    left: 0;
+    line-height: 1em;
+
+    width: 600px;
+}
+
+#meme-caption-top:before, #meme-caption-bottom:before {
+    content: attr(data-content);
+    z-index: -1;
+}
+
+#meme-caption-top:before, #meme-caption-bottom:before {
+    -webkit-text-stroke-width: 9px;
+    -webkit-text-stroke-color: #000;
+
+    text-shadow: 0 0 4px #000;
+}
+
+#meme-image {
+    z-index: -2;
+    position: relative;
+}
+
+#add-caption .page-header {
+    position: relative;
+}
+
+/* Back button */
+#add-caption .page-header small {
+    position: absolute;
+    left: 0;
+    font-size: 0.25em;
+    letter-spacing: 1px;
+    top: 50%;
+    margin-top: -40px;
+}
+
+#sidebar .form-group {
+    position: relative;
+}
+
+#sidebar .sizes {
+    position: absolute;
+    right: 100%;
+    width: 80px;
+    bottom: 0;
+    margin-right: 10px;
+}
+
+#meme-list {
+    position: relative;
+}
+
+#meme-list:empty:after {
+    content: "Press \A Cmd + Alt + J";
+    white-space: pre;
+    position: absolute;
+    top: 20px;
+    font-size: 4.20em;
+    width: 100%;
+    text-align: center;
+    font-style: italic;
+    color: #eee;
 }
 

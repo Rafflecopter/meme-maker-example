@@ -10,6 +10,9 @@
     <head>
         <title>Rafflecopter Meme Maker</title>
 
+        <!-- Fonts -->
+        <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/d506ff45-9fbf-4e20-bc03-8b52dae56361.css"/>
+
         <!-- Styling for Bootstrap. Makes buttons look like buttons, etc... -->
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
 
@@ -18,14 +21,95 @@
     </head>
 
     <body>
+
         <div id="choose-meme" class="container">
-
-
             <h1 class="page-header">Choose a Meme</h1>
-            
             <div id="meme-list" class="row"></div>
+        </div>
 
 
+        <div id="add-caption" class="container" style="display:none">
+            <h2 class="page-header">Add Captions
+                <small>
+                    <a class="btn btn-default" href="/">
+                        <span class="glyphicon glyphicon-chevron-left">
+                    </a>
+                </small>
+            </h2>
+
+            <div class="row">
+                <div id="meme-canvas" class="col-xs-8">
+                    <img id="meme-image" src="" >
+
+                    <div id="meme-caption-top" 
+                         data-content="Top Caption..."
+                         data-stroke=9
+                         style="font-size:48px">Top Caption...
+                    </div>
+
+                    <div id="meme-caption-bottom"
+                         data-content="Bottom Caption..."
+                         data-stroke=9
+                         style="font-size:48px">Bottom Caption...</div>
+                </div>
+
+                <div id="sidebar" class="col-xs-3 col-xs-offset-1">
+                    <form>
+                        <div class="form-group">
+                            <label for="input-caption-top">Top Caption:</label>
+                            <input id="input-caption-top"
+                                   placeholder="Top Caption..."
+                                   data-for="meme-caption-top"
+                                   class="form-control caption-input"
+                                   tabindex=1
+                                   autofocus=true
+                                   type="text">
+
+                            <div class="btn-group sizes">
+                                <button class="btn btn-default size-change-up"
+                                        type="button"
+                                        tabindex=3
+                                        data-for="meme-caption-top">
+                                    <span class="glyphicon glyphicon-chevron-up"></span>
+                                </button>
+
+                                <button class="btn btn-default size-change-down"
+                                        type="button"
+                                        tabindex=4
+                                        data-for="meme-caption-top">
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input-caption-bottom">Bottom Caption:</label>
+                            <input id="input-caption-bottom"
+                                   placeholder="Bottom Caption..."
+                                   data-for="meme-caption-bottom"
+                                   class="form-control caption-input"
+                                   tabindex=2
+                                   type="text">
+
+                            <div class="btn-group sizes">
+                                <button class="btn btn-default size-change-up"
+                                        type="button"
+                                        tabindex=5
+                                        data-for="meme-caption-bottom" >
+                                    <span class="glyphicon glyphicon-chevron-up"></span>
+                                </button>
+
+                                <button class="btn btn-default size-change-down"
+                                        type="button"
+                                        tabindex=6
+                                        data-for="meme-caption-bottom" >
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
         
 

@@ -1,0 +1,33 @@
+* {
+    font-family: "Helvetica", sans-serif;
+}
+
+.col-xs-4 { background: #eee; outline:1px solid #555;outline-offset: -1px; }
+
+
+h1.page-header {
+    text-align:     center;
+    font-weight:    bold;
+    font-size:      72px;
+
+    padding-bottom: 50px;
+    margin-bottom:  60px;
+
+    /* looks cooler... */
+    letter-spacing: -2px;
+}
+
+
+.thumbnail {
+    display:    block;
+    width:      100%;
+    height:     160px;
+    opacity:    0.8;
+}
+
+.thumbnail:hover {
+    cursor:         pointer;
+    border-color:   #39c;
+    opacity:        1;
+}
+

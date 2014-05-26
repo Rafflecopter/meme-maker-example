@@ -57,17 +57,20 @@ $(document).on('ready', function() {
 
   PRINT("wOOt! loading application...")
 
-  // For each meme in the above list, add it to the page
-  memes.forEach( add_meme_thumbnail )
+  TODO("Add a thumbnail for each meme in the list")
+  // memes.forEach( add_meme_thumbnail )
 
+  TODO("When user clicks a thumbnail, show the add-caption page")
   $(".thumbnail").on("click", handle_thumbnail_click)
 
+  TODO("When user types in text box, change the corresponding caption")
   $(".caption-input").on("keyup", handle_caption_change)
 
+  TODO("When user clicks up/down, change the corresponding caption size")
   $(".size-change-up").on("click", handle_size_up)
   $(".size-change-down").on("click", handle_size_down)
 
-}
+})
 
 
 
@@ -207,7 +210,11 @@ function GET_CAPTION_SIZE( button ) {
 //
 
 console.log("%cWelcome to the console. It is your friend.", "font-size:2.5em;color:#444;font-weight:bold;")
-console.log("%cTo use it, type in some code & hit enter. Try something simple, like `7+4`", "font-size:1.5em;")
+console.log("%cTo use it, type in some code & hit enter.", "font-size:1.5em;")
+console.log("%cYou can also print things here from inside your program.", "font-size:1.5em;")
+console.log("")
+
+console.log("%cTo get started programming, open the app.js file in your editor.", "font-weight:bold;color:#095;font-size:1.25em;font-family:monospace;")
 console.log("")
 
 function TODO(msg) {console.log('%cTODO: '+msg, 'color:#f51;font-weight:bold;') }

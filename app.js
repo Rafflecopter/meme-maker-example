@@ -59,6 +59,8 @@ var memes = [
     |    | example:
     |    |   var my_list = [1, 2, 3, "shiner is stinky?", true]
     |
+    | Try it out in The Console
+    |
     '*************/
 
 
@@ -67,13 +69,13 @@ var memes = [
 // We'll spend a lot of our time finding HTML tags & doing things to them.
 // Let's start by finding the 2 main pages of our application.
 
-var $page1 = $('#page-1')
-var $page2 = $('#page-2')
+var $page1 = $(__________)
+var $page2 = $(__________)
 
 
 // Now let's find the thumbnail grid
 
-var $thumbnail_grid = $('#thumbnail-grid')
+var $thumbnail_grid = $(__________)
 
 
     /**** NOTE ****

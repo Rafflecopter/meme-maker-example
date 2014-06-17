@@ -1,20 +1,36 @@
-/** This is the heart & soul of the application. Here we turn the lifeless
- *  HTML page into an app that users can interact with.
- *
- *  btw - this is a "comment". It's a chunk of text the computer will ignore. */
+;(function() {                  // ignore this line
+____set_up_book_learnin____()   // ignore this line
 
 
 
-/** Keep a list of all the available memes. Later, we'll turn each of these 
- *  into a clickable image, and put it in the grid on the first page.
- * 
- *  You can make a list by putting a comma-separated list of things inside
- *  square brackets, like this:
- *  
- *      [1, 2, 3, "shiner", "stinky breath"]
- *
- *  Each thing in this list is called a "string". A string is just a group of
- *  letters/numbers/punctuation - like a word, sentence, phone #, or file name.  */
+    /**** NOTE ****
+     |
+     | This file is the guts of the application, where we add the interaction
+     | (clicks, etc...) - and turn the "dead" HTML page into an "alive" app.
+     | 
+     | I'll break this file into pieces, separated by section headings, to
+     | help you find your way around
+     |
+     '*************/
+
+
+
+// THE VERY FIRST THING YOU SHOULD DO: delete this line & the one below
+return;
+
+
+
+
+
+
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// ~~ INITIAL SETUP ~~
+
+
+// This is a list of all the available memes. Later, we'll turn each of these 
+// into a clickable image, and put it in the grid on the first page.
 
 var memes = [
   "does-not-simply",
@@ -35,66 +51,124 @@ var memes = [
   "scumbag-steve",
 ]
 
-
-/** We'll spend most of our time finding HTML tags & doing things to  them.
- *  We can find tags by their ID's.
- *  
- *  Let's say we're looking for this button:
- *
- *      <button id="shiner">
- *
- *  To find it, use the "hashtag version" of its ID, like this:
- *
- *      var btn = $.find("#shiner")
- *
- */
+    /**** NOTE ****
+    |
+    | The thing above is called a "list" (some ppl call it an 'array')
+    | To make a new list, put a comma-separated group of things inside a [ ]
+    |  
+    |    | example:
+    |    |   var my_list = [1, 2, 3, "shiner is stinky?", true]
+    |
+    '*************/
 
 
 
-// When the page has been fully loaded, let's start the show...
 
-$(document).on('ready', function() {
+// We'll spend a lot of our time finding HTML tags & doing things to them.
+// Let's start by finding the 2 main pages of our application.
 
-  PRINT("wOOt! loading application...")
+var $page1 = $('#page-1')
+var $page2 = $('#page-2')
 
-  TODO("Add a thumbnail for each meme in the list")
-  // memes.forEach( add_meme_thumbnail )
 
-  TODO("When user clicks a thumbnail, show the add-caption page")
-  $(".thumbnail").on("click", handle_thumbnail_click)
+// Now let's find the thumbnail grid
 
-  TODO("When user types in text box, change the corresponding caption")
-  $(".caption-input").on("keyup", handle_caption_change)
+var $thumbnail_grid = $('#thumbnail-grid')
 
-  TODO("When user clicks up/down, change the corresponding caption size")
-  $(".size-change-up").on("click", handle_size_up)
-  $(".size-change-down").on("click", handle_size_down)
 
-})
+    /**** NOTE ****
+     | 
+     | To find a tag, we can "hashtag-ify" its ID, like this:
+     |
+     |    | We want to find this tag .....  <button id="shiner"> 
+     |    | We'll use this code ..........  $("#shiner")
+     |
+     | (don't forget those quotation marks around "#shiner")
+     |
+     | You can find an element's ID in the index.html file (which you can
+     | find in your left sidebar)
+     |
+     '*************/
 
+
+
+
+
+
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// ~~ START THE APPLICATION ~~
+
+
+function MAIN() {
+
+  // You can print anything you want to The Console by doing like this:
+  console.log("Starting the application.", "Time is:", new Date)
+
+
+  // The screen is blank! We need to show the first page.
+  __________.show()
+
+
+  // Add each meme in our list to the thumbnail grid.
+  memes.forEach( add_meme_thumbnail )
+
+  // Now that everything's in place, let's listen for user actions
+  // like clicking & typing...
+  listen_for_user_actions()
+}
 
 
 function add_meme_thumbnail( meme_name ) {
-  /* This function takes a meme name, and adds a thumbnail to the mail list
-   * of memes on the first page.
-   *
-   * Parameters:
-   *    `meme_name` - one of the memes from the list at the top               */
+  
+  // First, let's find the grid of thumbnails
+  var $thumbnail_grid = $(__________)
+
+  // Next, we'll put together the HTML for a new thumbnail image
+  var html = '<div class="col-xs-2"> ' +
+               '<img class="thumbnail"  ' +
+               '     src="/img/ XXXXXXXXXX .jpg">' +
+             '</div> '
+
+  $(__________).append(html.replace('XXXXXXXXXX', __________))
 
 
-  var html = ' <div class="col-xs-2"> ' +
-             '     <img class="thumbnail" src="/img/' + meme_name + '.jpg">' +
-             ' </div> '
+  console.log("Added a thumbnail for ", meme_name, "!")
+}
 
 
-  $("#meme-list").append(html)
 
-  LOG("Added " + meme_name + " to list")
+
+
+
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// ~~ USER INTERACTION ~~
+
+
+function listen_for_user_actions() {
+
+
+  // TODO: left off here
+
+
+  // This means:
+  //     Anytime a <img class="thumbnail"> gets clicked,
+  //     run the code inside `handle_thumbnail_click`
+  $(".thumbnail").on("click", handle_thumbnail_click)
+
+  // TODO: call 
+  $(".caption-input").on("keyup", handle_caption_change)
+
+  $(".size-change-up").on("click", handle_size_up)
+  $(".size-change-down").on("click", handle_size_down)
 }
 
 
 function handle_thumbnail_click() {
-  LOG("Thumbnail was clicked!")
+  console.log("Thumbnail was clicked!")
 
   // The HTML tag that was clicked is stored in a variable called
   // `this`.
@@ -119,7 +193,7 @@ function handle_size_up() {
   // Increase it
   CHANGE_CAPTION_SIZE(this, size + 4)
 
-  LOG("caption size UP")
+  console.log("caption size UP")
 }
 
 function handle_size_down() {
@@ -129,7 +203,7 @@ function handle_size_down() {
   // Decrease it
   CHANGE_CAPTION_SIZE(this, size - 4)
 
-  LOG("caption size DOWN")
+  console.log("caption size DOWN")
 }
 
 
@@ -185,7 +259,9 @@ function GET_CAPTION_SIZE( button ) {
   // Get the caption's font-size
   var font_size = $captionTag.css('font-size')
 
-  return font_size
+  // This looks confusing, but is just a shorthand for saying
+  // [ turn the string "48px" into the number 48
+  return font_size.replace('px', '') | 0
 }
 
 
@@ -206,27 +282,41 @@ function GET_CAPTION_SIZE( button ) {
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 //
-// BEHIND THE SCENES
+// BEHIND THE SCENES - ignore this ;)
 //
 
-console.log("%cWelcome to the console. It is your friend.", "font-size:2.5em;color:#444;font-weight:bold;")
-console.log("%cTo use it, type in some code & hit enter.", "font-size:1.5em;")
-console.log("%cYou can also print things here from inside your program.", "font-size:1.5em;")
-console.log("")
+$(MAIN)
+function ____set_up_book_learnin____() {
+  console.log("%cWelcome to The Console. It is your friend.", "font-size:2.5em;color:#444;font-weight:bold;")
+  console.log("%cTo use it, type some code & press enter.", "font-size:1.5em;padding-bottom:0.5em;")
+  console.log("")
 
-console.log("%cTo get started programming, open the app.js file in your editor.", "font-weight:bold;color:#095;font-size:1.25em;font-family:monospace;")
-console.log("")
+  console.log("%cTo get started programming, open the app.js file in your editor.", "font-weight:bold;color:#095;font-size:1.25em;font-family:monospace;")
+  console.log("")
 
-function TODO(msg) {console.log('%cTODO: '+msg, 'color:#f51;font-weight:bold;') }
-function PRINT(msg) { console.log('%c'+msg, 'font-style:italic;color:#78b') }
-function LOG(msg) { console.log('%c'+msg, 'color:#aaa;font-style:italic;')}
+  function ERR(msg) {console.log('%c!! '+msg, 'color:#f51;font-weight:bold;') }
+  function PRINT(msg) { console.log('%c'+msg, 'font-style:italic;color:#78b') }
+  function LOG(msg) { console.log('%c'+msg, 'color:#aaa;font-style:italic;')}
+ 
+  Object.defineProperty(window, '__________', {
+    get: function(){
+      var err = new Error('')
+        , spl = err.stack.split("\n")
+        , loc = spl[2].trim()
+        , line = loc.split('/').slice(-1)[0].split(':')[1]
 
+      throw "Error  -->  BLANK SPACE REMAINING on line " + line
+      return {show:function(){}, hide:function(){}}
+    }
+  })
 
-function __fix_text_outline__($tag) {
-  /** This function uses a hacky (but effective) technique to give us the
-   *  nice black outline around the white text
-   */
-  $tag.attr('data-content', $tag.text())
+  function __fix_text_outline__($tag) {
+    /** This function uses a hacky (but effective) technique to give us the
+     *  nice black outline around the white text
+     */
+    $tag.attr('data-content', $tag.text())
+  }
 }
 
 
+}()); // ignore this line

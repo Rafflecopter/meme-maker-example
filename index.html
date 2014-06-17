@@ -22,13 +22,19 @@
 
     <body>
 
-        <div id="choose-meme" class="container">
+
+        <!-- The First Page (aka. grid of thumbnails) -->
+
+        <div id="page-1" class="container" style="display:none">
             <h1 class="page-header">Choose a Meme</h1>
-            <div id="meme-list" class="row"></div>
+            <div id="thumbnail-grid" class="row"></div>
         </div>
 
 
-        <div id="add-caption" class="container" style="display:none">
+
+        <!-- The Second Page (aka. where you write the captions) -->
+
+        <div id="page-2" class="container" style="display:none">
             <h2 class="page-header">Add Captions
                 <small>
                     <a class="btn btn-default" href="/">
@@ -112,6 +118,13 @@
             </div>
         </div>
         
+
+
+        <div id="page-0" class="container">
+          <b>Ain't nothin here!</b>
+          <small>To get started, press <code>Cmd+Shift+J</code>
+                 to open <strong>The Console</strong></small>
+        </div>
 
         <!-- Load jQuery, which our app needs -->
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>

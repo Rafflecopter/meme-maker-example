@@ -148,3 +148,37 @@ h2.page-header { font-size: 48px; }
     color: #eee;
 }
 
+#page-0 b {
+    font-size: 1.75em;
+    padding: 20px;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #ccc;
+    letter-spacing: 6px;
+    word-spacing: 2px;
+    display: block;
+    width: 420px;
+    margin: 50px auto;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+#page-0 small {
+    font-size: 1em;
+}
+
+#page-0 {
+    text-align: center;
+    font-family: "Helvetica Neue", "Helvetica", sans-serif;
+}
+
+#meme-list:empty:after {
+    content: "NO GRID YET";
+    position: absolute;
+    width: 300px;
+    left: 50%;
+    margin-left: -150px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+}
+

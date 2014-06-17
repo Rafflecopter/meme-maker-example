@@ -3,20 +3,40 @@ ____set_up_book_learnin____()   // ignore this line
 
 
 
+
+// THE VERY FIRST THING YOU SHOULD DO: delete this line & the one below
+return;
+
+
+
+
     /**** NOTE ****
      |
      | This file is the guts of the application, where we add the interaction
      | (clicks, etc...) - and turn the "dead" HTML page into an "alive" app.
+     |
+     | The way this file works is that a lot of (boring) code has already been
+     | written for you, but the most important parts have been ripped out.
+     |
+     | The missing code has been replaced with a fill-in-the-blank.
+     | Any time you see a blank space like  __________  your job is to figure
+     | out what should go there & replace the blank line with the correct code.
      | 
-     | I'll break this file into pieces, separated by section headings, to
-     | help you find your way around
+     | Let's try a really simple one.
+    */
+
+  // Fill in the blank, then refresh the page.
+  // Be sure to put quotes around your name.
+  console.log("O hai! My name is",  __________  ,"!")
+
+
+    /**** NOTE ****
+     |
+     | The file is also broken up into sections, each with a title, to
+     | help you find your way around.
      |
      '*************/
 
-
-
-// THE VERY FIRST THING YOU SHOULD DO: delete this line & the one below
-return;
 
 
 
@@ -32,7 +52,7 @@ return;
 // This is a list of all the available memes. Later, we'll turn each of these 
 // into a clickable image, and put it in the grid on the first page.
 
-var memes = [
+var meme_list = [
   "does-not-simply",
   "batman-slap",
   "most-interesting-man",
@@ -80,7 +100,7 @@ var $thumbnail_grid = $(__________)
 
     /**** NOTE ****
      | 
-     | To find a tag, we can "hashtag-ify" its ID, like this:
+     | To find a tag on the page, we can "hashtag-ify" its ID, like this:
      |
      |    | We want to find this tag .....  <button id="shiner"> 
      |    | We'll use this code ..........  $("#shiner")
@@ -105,7 +125,7 @@ var $thumbnail_grid = $(__________)
 
 function MAIN() {
 
-  // You can print anything you want to The Console by doing like this:
+  // You can print anything you want to The Console like this:
   console.log("Starting the application.", "Time is:", Date())
 
 
@@ -113,8 +133,9 @@ function MAIN() {
   __________.show()
 
 
-  // Add each meme in our list to the thumbnail grid, one at a time.
-  memes.forEach( add_meme_thumbnail )
+  // Add each meme in the above list to the thumbnail grid.
+  __________.forEach( add_meme_thumbnail )
+
 
   // Now that everything's in place, let's listen for user actions
   // like clicking & typing...
@@ -143,9 +164,8 @@ function add_meme_thumbnail( meme_name ) {
         // http://www.w3schools.com/jsref/jsref_replace.asp
 
 
-  // .append() adds some HTML inside (at the end of) an HTML tag.
-  // So let's use that to add put our HTML inside the thumbnail grid.
-
+  // $my_html_tag.append() adds some HTML inside (at the end of) $my_html_tag
+  // So let's use that to add our HTML inside the thumbnail grid.
   __________.append(__________)
 }
 

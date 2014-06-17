@@ -158,7 +158,7 @@ function add_meme_thumbnail( meme_name ) {
 
 
   // XXXXXXXXXX.jpg is not a real file name. Let's replace it with our meme.
-  html = html.replace(__________ , __________)
+  html = html.replace('XXXXXXXXXX' , __________)
 
         // You might find this article helpful: 
         // http://www.w3schools.com/jsref/jsref_replace.asp
@@ -348,7 +348,14 @@ function ____set_up_book_learnin____() {
      */
     $tag.attr('data-content', $tag.text())
   }
-}
 
+  var __old_show__ = $.fn.show
+  $.fn.show = function() {
+    $.each(this, function(i,x){ $(x).trigger('shown') })
+    __old_show__.apply(this, arguments)
+  }
+
+  $('body').on('shown', '#page-1', function() { $('#page-0').hide() })
+}
 
 }()); // ignore this line

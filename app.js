@@ -106,7 +106,7 @@ var $thumbnail_grid = $(__________)
 function MAIN() {
 
   // You can print anything you want to The Console by doing like this:
-  console.log("Starting the application.", "Time is:", new Date)
+  console.log("Starting the application.", "Time is:", Date())
 
 
   // The screen is blank! We need to show the first page.
@@ -123,7 +123,8 @@ function MAIN() {
 
 
 function add_meme_thumbnail( meme_name ) {
-  
+  console.log("Adding a thumbnail for " + meme_name + " ...")
+
   // First, let's find the grid of thumbnails
   var $thumbnail_grid = $(__________)
 
@@ -133,10 +134,7 @@ function add_meme_thumbnail( meme_name ) {
                '     src="/img/ XXXXXXXXXX .jpg">' +
              '</div> '
 
-  $(__________).append(html.replace('XXXXXXXXXX', __________))
-
-
-  console.log("Added a thumbnail for ", meme_name, "!")
+  $thumbnail_grid.append(html.replace(' XXXXXXXXXX ', __________))
 }
 
 

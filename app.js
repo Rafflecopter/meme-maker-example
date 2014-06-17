@@ -113,7 +113,7 @@ function MAIN() {
   __________.show()
 
 
-  // Add each meme in our list to the thumbnail grid.
+  // Add each meme in our list to the thumbnail grid, one at a time.
   memes.forEach( add_meme_thumbnail )
 
   // Now that everything's in place, let's listen for user actions
@@ -128,13 +128,25 @@ function add_meme_thumbnail( meme_name ) {
   // First, let's find the grid of thumbnails
   var $thumbnail_grid = $(__________)
 
-  // Next, we'll put together the HTML for a new thumbnail image
+
+  // This is the (unfinished) HTML for a new thumbnail image
   var html = '<div class="col-xs-2"> ' +
                '<img class="thumbnail"  ' +
-               '     src="/img/ XXXXXXXXXX .jpg">' +
+               '     src="/img/XXXXXXXXXX.jpg">' +
              '</div> '
 
-  $thumbnail_grid.append(html.replace(' XXXXXXXXXX ', __________))
+
+  // XXXXXXXXXX.jpg is not a real file name. Let's replace it with our meme.
+  html = html.replace(__________ , __________)
+
+        // You might find this article helpful: 
+        // http://www.w3schools.com/jsref/jsref_replace.asp
+
+
+  // .append() adds some HTML inside (at the end of) an HTML tag.
+  // So let's use that to add put our HTML inside the thumbnail grid.
+
+  __________.append(__________)
 }
 
 

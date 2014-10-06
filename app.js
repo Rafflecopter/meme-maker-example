@@ -161,10 +161,6 @@ function add_meme_thumbnail( meme_name ) {
 
 function listen_for_user_actions() {
 
-
-  // TODO: left off here
-
-
   // This means:
   //     Anytime a <img class="thumbnail"> gets clicked,
   //     run the code inside `handle_thumbnail_click`
@@ -238,7 +234,7 @@ function handle_caption_change() {
 
 
   // magical hack. removing this will break the text outline.
-  __fix_text_outline__($caption_tag)
+  __fix_text_outline__($image_caption_element)
 }
 
 
@@ -279,6 +275,13 @@ function GET_CAPTION_SIZE( button ) {
   // This looks confusing, but is just a shorthand for saying
   // [ turn the string "48px" into the number 48
   return font_size.replace('px', '') | 0
+}
+
+function __fix_text_outline__($tag) {
+  /** This function uses a hacky (but effective) technique to give us the
+   *  nice black outline around the white text
+   */
+  $tag.attr('data-content', $tag.text())
 }
 
 
@@ -323,16 +326,9 @@ function ____set_up_book_learnin____() {
         , line = loc.split('/').slice(-1)[0].split(':')[1]
 
       console.error("Error  -->  BLANK SPACE REMAINING on line " + line)
-      return {show:function(){}, hide:function(){}}
+      return {show:function(){}, hide:function(){}, forEach:function(){}}
     }
   })
-
-  function __fix_text_outline__($tag) {
-    /** This function uses a hacky (but effective) technique to give us the
-     *  nice black outline around the white text
-     */
-    $tag.attr('data-content', $tag.text())
-  }
 
   var __old_show__ = $.fn.show
   $.fn.show = function() {

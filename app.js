@@ -13,9 +13,8 @@ ____set_up_book_learnin____()   // ignore this line
      | Any time you see a blank space like  __________  your job is to figure
      | out what should go there & replace the blank line with the correct code.
      | 
-     | Once you've filled in the blank, refresh the page in your browser.
+     | Once you've filled in the blank, save the file & refresh the page in your browser.
      | 
-     | Let's try a really simple one.
    */
 
 

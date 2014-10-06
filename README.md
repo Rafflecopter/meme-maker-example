@@ -7,7 +7,7 @@ Check the top-right for a "fork" button.
 - Open Terminal
 - `git clone git@github.com:<YOUR_USERNAME_HERE>/meme-maker-example.git`
 - `cd meme-maker-example`
-- `python -m SimpleHTTPServer`
+- `./SERVER`
 
 ## 3: Open the webpage
 Open your browser and go to `http://localhost:8000`

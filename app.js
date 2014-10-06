@@ -128,7 +128,7 @@ function add_meme_thumbnail( meme_name ) {
   // This is the (unfinished) HTML for a new thumbnail image
   var html = '<div class="col-xs-2"> ' +
                '<img class="thumbnail"  ' +
-               '     src="/img/XXXXXXXXXX.jpg">' +
+               '     src="img/XXXXXXXXXX.jpg">' +
              '</div> '
 
 

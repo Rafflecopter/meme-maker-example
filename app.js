@@ -80,13 +80,13 @@ var meme_list = [
 
 
 // The main pages of our app
-var $page1 = $(__________)
-var $page2 = $(__________)
+var $page1 = $('#page-1')
+var $page2 = $('#page-2')
 
 
 // Now let's find the thumbnail grid
 
-var $thumbnail_grid = $(__________)
+var $thumbnail_grid = $('#thumbnail-grid')
 
 
     
@@ -109,11 +109,11 @@ function MAIN() {
 
 
   // The screen is blank! We need to show the first page.
-  __________.show()
+  $page1.show()
 
 
   // Add each meme in the above list to the thumbnail grid.
-  __________.forEach( add_meme_thumbnail )
+  meme_list.forEach( add_meme_thumbnail )
 
 
   // Now that everything's in place, let's listen for user actions
@@ -125,10 +125,6 @@ function MAIN() {
 function add_meme_thumbnail( meme_name ) {
   console.log("Adding a thumbnail for " + meme_name + " ...")
 
-  // First, let's find the grid of thumbnails
-  var $thumbnail_grid = $(__________)
-
-
   // This is the (unfinished) HTML for a new thumbnail image
   var html = '<div class="col-xs-2"> ' +
                '<img class="thumbnail"  ' +
@@ -137,7 +133,7 @@ function add_meme_thumbnail( meme_name ) {
 
 
   // XXXXXXXXXX.jpg is not a real file name. Let's replace it with our meme.
-  html = html.replace('XXXXXXXXXX' , __________)
+  html = html.replace('XXXXXXXXXX' , meme_name)
 
         // You might find this article helpful: 
         // http://www.w3schools.com/jsref/jsref_replace.asp
@@ -145,7 +141,7 @@ function add_meme_thumbnail( meme_name ) {
 
   // $my_html_tag.append() adds some HTML inside (at the end of) $my_html_tag
   // So let's use that to add our HTML inside the thumbnail grid.
-  __________.append(__________)
+  $thumbnail_grid.append(html)
 }
 
 
@@ -160,9 +156,6 @@ function add_meme_thumbnail( meme_name ) {
 
 
 function listen_for_user_actions() {
-
-
-  // TODO: left off here
 
 
   // This means:
@@ -190,16 +183,16 @@ function handle_thumbnail_click() {
   // To set attributes, do like this: $myLink.attr('href', 'http://google.com')
 
   // The `src` attribute (ie. the URL of the thumbnail)
-  var thumbnail_src = __________
+  var thumbnail_src = $thumbnail.attr('src')
 
   // Set the `src` of the large image to the thumbnail's `src`
-  $('#meme-image').attr(__________)
+  $('#meme-image').attr('src', thumbnail_src)
 
   // Hide the choose-meme page
-  $(__________).hide()
+  $page1.hide()
 
   // Show the add-caption page
-  $('#add-caption').show()
+  $page2.show()
 }
 
 
@@ -208,7 +201,7 @@ function handle_size_up() {
   var size = GET_CAPTION_SIZE(this)
 
   // Increase it
-  CHANGE_CAPTION_SIZE(this, __________)
+  CHANGE_CAPTION_SIZE(this, size + 4)
 
   console.log("caption size UP")
 }
@@ -218,7 +211,7 @@ function handle_size_down() {
   var size = GET_CAPTION_SIZE(this)
 
   // Decrease it
-  CHANGE_CAPTION_SIZE(this, __________)
+  CHANGE_CAPTION_SIZE(this, size - 4)
 
   console.log("caption size DOWN")
 }
@@ -230,15 +223,15 @@ function handle_caption_change() {
   var caption_text = $text_box.val()
 
   // Find the HTML tag corresponding to the text box
-  var which_caption = $text_box.data(__________)
-  var $image_caption_element = $('#' + __________)
+  var which_caption = $text_box.data('for')
+  var $image_caption_element = $('#' + which_caption)
 
   // Upate the HTML tag w/ the new caption
-  $image_caption_element.text(__________)
+  $image_caption_element.text(caption_text)
 
 
   // magical hack. removing this will break the text outline.
-  __fix_text_outline__($caption_tag)
+  __fix_text_outline__($image_caption_element)
 }
 
 
@@ -281,7 +274,12 @@ function GET_CAPTION_SIZE( button ) {
   return font_size.replace('px', '') | 0
 }
 
-
+function __fix_text_outline__($tag) {
+  /** This function uses a hacky (but effective) technique to give us the
+   *  nice black outline around the white text
+   */
+  $tag.attr('data-content', $tag.text())
+}
 
 
 
@@ -326,13 +324,6 @@ function ____set_up_book_learnin____() {
       return {show:function(){}, hide:function(){}}
     }
   })
-
-  function __fix_text_outline__($tag) {
-    /** This function uses a hacky (but effective) technique to give us the
-     *  nice black outline around the white text
-     */
-    $tag.attr('data-content', $tag.text())
-  }
 
   var __old_show__ = $.fn.show
   $.fn.show = function() {

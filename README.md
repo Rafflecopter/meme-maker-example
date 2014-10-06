@@ -1,3 +1,5 @@
+__SPOILER ALERT:__ If you click on <img src="http://cl.ly/image/0S2t313J3246/Screen%20Shot%202014-10-06%20at%204.28.18%20PM.png">, you will probably find some filled-in code, so don't do it :P
+
 ## 1: Fork this repository
 Check the top-right for a "fork" button.
 

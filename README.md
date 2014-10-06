@@ -17,3 +17,12 @@ Open your browser and go to `http://localhost:8000`
 ## 5: ???
 
 ## 6: Profit
+
+
+<hr>
+
+# Working Example
+
+Checking out a working example will be crucial. There's one here: http://rafflecopter.github.io/meme-maker-example/
+
+__WARNING - SPOILER ALERT:__ the source code on that page is the filled-in version of yours, so it contains spoilers.
